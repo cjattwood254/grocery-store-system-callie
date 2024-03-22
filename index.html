@@ -8,31 +8,43 @@
     <div class="container">
         <header>
             <nav>
-                <!-- link to homepage -->
-                <!-- link to about us page -->
-                <!-- link to contact page -->
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </nav>
             <h1>Grocery Store System</h1>
         </header>
         <div>
-            <!-- inventory list here -->
+            <h2>Current Store Inventory: </h2>
+            <div id="store-inventory"></div>
+        </div>
+        <div>
+            <h2>Low In Stock Items: </h2>
+            <div id="low-in-stock-items"></div>
         </div>
         <div>
             <form>
-                <label>Item Name</label>            
+                <label for="item-name-input">Item Name</label>            
                     <input type="text" id="item-name-input">
-                <label>Item Quantity</label>
+                <labe for="item-quantity-input">Item Quantity</label>
                     <input type="number" id="item-quantity-input">
-                <label>Item Price</label>
+                <label for="item-price-input">Item Price</label>
                     <input type="number" id="item-price-input">
-                <label>Item Catagory</label>
-                    <select id="item-category-select">
-                        
-                    </select>
+                <label for="item-category-radio">Item Catagory</label>
+                    <section id="item-category-radio">
+                        <label for="produce">Produce</label>
+                            <input type="radio" id="produce" name="Produce" value="Produce">
+                        <label for="dairy">Dairy</label>
+                            <input type="radio" id="dairy" name="Dairy" value="Dairy">
+                        <label for="meat">Meat</label>
+                            <input type="radio" id="meat" name="Meat" value="Meat">
+                        <label for="bakery">Bakery</label>
+                            <input type="radio" id="bakery" name="Bakery" value="Bakery">
+                    </section>
+                    <button id="add-to-inventory-button">Add to Inventory</button>
             </form>
-        </div>
-        <div>
-            <!-- low in stock notification here -->
         </div>
     </div>
 
