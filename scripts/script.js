@@ -24,7 +24,31 @@ class Item {
     }
 }
 
+// use an event listener to show groceryItem array on DOM load
+
+document.addEventListener('DOMContentLoaded', () => {
+    const displayArrayList = (array, elementID) =>{
+        const listElement = document.getElementById(elementID);
+        listElement.innerHTML = ' ',
+        array.forEach(item => {
+            const listItem = document.createElement('li');
+            listItem.textContent = item.displayInfo ? item.displayInfo() : `${item.name}, Quantity: ${item.quantity}, Price: $${item.price}, Category: ${item.category}`;
+            listElement.appendChild(listItem); 
+    });
+    };
+// show checkQuantity function results
+displayArrayList(checkQuantity(groceryItems), "low-in-stock-items");
 // use an event listener to make the add to inventory button functional. 
 // it should gather data from the form, create a new Item using form data, append it to the inventory array, and display the new item
-
+    document.getElementById("add-to-inventory-button").onclick = () =>{
+        const name = document.getElementById("item-name-input").value;
+        // parseFloat will be important if you're working with numbers
+        const quantity = parseFloat(document.getElementById("item-quantity-input").value);
+        const price = parseFloat(document.getElementById("item-price-input").value);
+        const category = document.getElementById("item-category-radio")
+        const groceryItem = new groceryItem(name, quantity, price, category);
+        groceryItems.push(groceryItem);
+        displayArrayList(groceryItems, "store-inventory");
+    }
+});
 // STRETCH GOAL: implement a dynamic table to show inventory
